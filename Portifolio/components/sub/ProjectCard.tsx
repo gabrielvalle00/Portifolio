@@ -38,14 +38,10 @@ const ProjectCard = ({
       whileInView="visible"
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      whileHover={{ 
-        y: -10,
-        transition: { duration: 0.3, ease: "easeOut" }
-      }}
-      className="relative overflow-hidden rounded-2xl shadow-2xl border border-primary-500/30 bg-gradient-to-br from-surface/50 to-surface/20 backdrop-blur-sm group h-full flex flex-col"
+      className="relative overflow-hidden rounded-2xl shadow-lg border border-primary-500/30 bg-gradient-to-br from-surface/50 to-surface/20 backdrop-blur-sm group h-full flex flex-col w-full min-h-[420px] max-h-[520px] min-w-[90vw] max-w-[95vw] sm:min-w-[340px] sm:max-w-[340px] md:min-w-[380px] md:max-w-[380px] lg:min-w-[420px] lg:max-w-[420px] p-0"
     >
       {/* Image/Video Container */}
-      <div className="relative overflow-hidden h-48">
+      <div className="relative overflow-hidden h-40 sm:h-48 md:h-52 lg:h-56">
         {isVideo ? (
           <video
             src={videoUrl}

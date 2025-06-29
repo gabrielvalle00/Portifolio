@@ -218,11 +218,10 @@ export const Projects_data = [
   {
     title: "Patinhas do Bem (Web & Mobile)",
     description: "Plataforma web e mobile desenvolvida como TCC no SENAI, voltada para facilitar a adoção e doação de animais. Permite cadastro, busca, chat, integração com MySQL, Firebase, JWT, React Native, Android Studio e muito mais. Projeto completo, elogiado por professores e com impacto social real.",
-    image: "/project2.png",
+    image: "/tcc.png",
     technologies: ["React", "React Native", "Node.js", "MySQL", "Firebase", "JWT", "Android Studio", "JavaScript"],
     githubUrl: "https://github.com/gabrielvalle00/PatinhasDoBem",
     liveUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7273539766908829696/",
-    videoUrl: "/tcc.mp4",
     category: "Full Stack"
   },
   {

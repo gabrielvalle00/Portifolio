@@ -1,12 +1,59 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { staggerContainer, textVariant, cardVariant, fadeIn } from "@/utils/motion";
 import { Projects_data } from "@/constants";
 import ProjectCard from "../sub/ProjectCard";
 
 const Projects = () => {
+  const [offset, setOffset] = useState(0);
+  const speed = 1.2; // pixels por frame
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cardWidth = 420;
+  const gap = 32;
+  const total = Projects_data.length;
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Responsividade: larguras para cada breakpoint
+  const getCardWidth = () => {
+    if (typeof window !== 'undefined') {
+      const w = window.innerWidth;
+      if (w < 640) return 0.9 * w; // mobile
+      if (w < 768) return 340;
+      if (w < 1024) return 380;
+    }
+    return 420; // desktop
+  };
+  const [responsiveCardWidth, setResponsiveCardWidth] = useState(getCardWidth());
+  useEffect(() => {
+    function handleResize() {
+      setResponsiveCardWidth(getCardWidth());
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (isHovered) return;
+    let animationId: number;
+    function animate() {
+      setOffset((prev) => {
+        const totalWidth = total * (cardWidth + gap);
+        let next = prev + speed;
+        if (next >= totalWidth) next = 0;
+        return next;
+      });
+      animationId = requestAnimationFrame(animate);
+    }
+    animationId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationId);
+  }, [total, isHovered]);
+
+  // Duplicar os cards para efeito de loop infinito
+  const cardsToShow = [...Projects_data, ...Projects_data];
+
   return (
     <motion.div
       variants={staggerContainer}
@@ -42,26 +89,40 @@ const Projects = () => {
         ))}
       </motion.div>
 
-      {/* Grid de Projetos */}
-      <motion.div 
-        variants={cardVariant}
-        className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 w-full max-w-7xl px-4"
-      >
-        {Projects_data.map((project, index) => (
-          <ProjectCard
-            key={project.title}
-            src={project.image}
-            title={project.title}
-            description={project.description}
-            technologies={project.technologies}
-            githubUrl={project.githubUrl ?? undefined}
-            liveUrl={project.liveUrl ?? undefined}
-            category={project.category}
-            index={index}
-            videoUrl={project.videoUrl}
-          />
-        ))}
-      </motion.div>
+      {/* Carrossel horizontal clássico */}
+      <div className="relative w-full max-w-7xl h-[420px] sm:h-[480px] md:h-[520px] lg:h-[540px] overflow-hidden select-none">
+        <div
+          ref={containerRef}
+          className="flex items-center h-full gap-8"
+          style={{
+            transform: `translateX(-${offset}px)`,
+            transition: 'none',
+            width: `${cardsToShow.length * (responsiveCardWidth + gap)}px`,
+          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          {cardsToShow.map((project, i) => (
+            <div
+              key={i + project.title}
+              style={{ width: responsiveCardWidth, minWidth: responsiveCardWidth, maxWidth: responsiveCardWidth }}
+              className="flex-shrink-0"
+            >
+              <ProjectCard
+                src={project.image}
+                title={project.title}
+                description={project.description}
+                technologies={project.technologies}
+                githubUrl={project.githubUrl ?? undefined}
+                liveUrl={project.liveUrl ?? undefined}
+                category={project.category}
+                index={i}
+                {...('videoUrl' in project ? { videoUrl: (project as any).videoUrl } : {})}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Call to Action */}
       <motion.div

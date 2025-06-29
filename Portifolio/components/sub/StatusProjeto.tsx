@@ -2,8 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { Skill_data, Frontend_skill, Backend_skill, Full_stack } from "@/constants";
 
-const GITHUB_USER = "gabrielvalle00";
-
 function getUniqueSkills() {
   const allSkills = [
     ...Skill_data,
@@ -63,7 +61,6 @@ export default function StatusProjeto() {
   const [repoCount, setRepoCount] = useState<number | null>(null);
   const [yearsCount, setYearsCount] = useState<number | null>(null);
   const [toolsCount, setToolsCount] = useState<number>(getUniqueSkills().length);
-  const [currentYear] = useState<number>(new Date().getFullYear());
 
   const repoCountUp = useCountUp(repoCount);
   const yearsCountUp = useCountUp(yearsCount);
@@ -98,7 +95,7 @@ export default function StatusProjeto() {
 
   return (
     <section className="w-full flex flex-row items-center justify-center gap-12 mt-4 mb-2 px-4">
-      {cards.map((card, i) => (
+      {cards.map((card) => (
         <div
           key={card.label}
           className={

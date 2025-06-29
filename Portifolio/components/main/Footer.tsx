@@ -11,11 +11,6 @@ import {
 
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import emailjs from "@emailjs/browser";
-
-const SERVICE_ID = "service_fnidsvo";
-const TEMPLATE_ID = "template_rmvmgib";
-const PUBLIC_KEY = "Dzwxo7QCyiJhRZ7xS";
 
 // Definir tipo explícito para os links do footer
 interface FooterLink {
@@ -26,8 +21,6 @@ interface FooterLink {
 }
 
 const Footer = () => {
-  const [showContact, setShowContact] = useState(false);
-
   const footerSections: { title: string; links: FooterLink[] }[] = [
     {
       title: "Comunidade",
@@ -66,7 +59,6 @@ const Footer = () => {
           icon: <MdEmail />,
           label: "Enviar Email",
           href: "#",
-          onClick: () => setShowContact(true),
         },
       ],
     },
@@ -101,7 +93,6 @@ const Footer = () => {
                   href={link.href}
                   target={link.href !== "#" ? "_blank" : undefined}
                   rel={link.href !== "#" ? "noopener noreferrer" : undefined}
-                  {...(link.onClick ? { onClick: link.onClick } : {})}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}

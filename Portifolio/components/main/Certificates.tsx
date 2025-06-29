@@ -2,8 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaCertificate, FaGoogle, FaAws, FaMicrosoft, FaLinux } from 'react-icons/fa';
-import { SiMongodb, SiJavascript, SiPython, SiReact, SiNodedotjs, SiApachespark } from 'react-icons/si';
+import { FaCertificate } from 'react-icons/fa';
 
 const certificates = [
   {

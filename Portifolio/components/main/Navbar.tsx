@@ -33,7 +33,7 @@ const Navbar = () => {
   useEffect(() => {
     const sectionIds = navItems.map(item => item.href.replace('#', ''));
     const sections = sectionIds.map(id => document.getElementById(id));
-    const handleIntersect = (entries) => {
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           setActive(`#${entry.target.id}`);

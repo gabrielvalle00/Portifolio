@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useRef, useEffect, useState } from "react";
+import React, { useMemo, useEffect, useState } from "react";
 
 const STAR_COUNT = 80;
 const WIDTH = 1920;

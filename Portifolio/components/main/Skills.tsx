@@ -4,7 +4,6 @@ import {
   Backend_skill,
   Frontend_skill,
   Full_stack,
-  Skill_data,
 } from "@/constants";
 import React from "react";
 import { motion } from "framer-motion";

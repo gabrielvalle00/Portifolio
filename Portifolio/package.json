@@ -43,8 +43,6 @@
     "three-mesh-bvh": "^0.9.1"
   },
   "devDependencies": {
-    "@react-three/drei": "^10.3.0",
-    "@react-three/fiber": "^9.1.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

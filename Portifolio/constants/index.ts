@@ -222,7 +222,7 @@ export const Projects_data = [
     technologies: ["React", "React Native", "Node.js", "MySQL", "Firebase", "JWT", "Android Studio", "JavaScript"],
     githubUrl: "https://github.com/gabrielvalle00/PatinhasDoBem",
     liveUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7273539766908829696/",
-    videoUrl: "/TCC-Video ‐ Feito com o Clipchamp.mp4",
+    videoUrl: "/TCC.mp4",
     category: "Full Stack"
   },
   {
@@ -255,7 +255,7 @@ export const Projects_data = [
   {
     title: "Mundo Literário",
     description: "E-commerce completo para livraria virtual desenvolvido em Node.js com Express, Handlebars e MySQL. Sistema de carrinho de compras, gestão de produtos, autenticação de usuários e painel administrativo. Integração com APIs de pagamento e sistema de avaliações.",
-    image: "/mundo-literario-preview.png.png",
+    image: "/mundo-literario-preview.png",
     technologies: ["Node.js", "Express", "Handlebars", "MySQL", "JavaScript"],
     githubUrl: "https://github.com/gabrielvalle00/MundoLiterario",
     liveUrl: null,

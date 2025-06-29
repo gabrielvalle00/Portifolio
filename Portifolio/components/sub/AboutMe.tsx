@@ -97,7 +97,7 @@ const AboutMe = () => {
           <div className="w-80 h-80 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 p-1">
             <div className="w-full h-full rounded-full bg-[#030014] flex items-center justify-center">
               <Image
-                src="/profiol3.png"
+                src="/profile.jpg"
                 alt="Gabriel Valle"
                 width={300}
                 height={300}

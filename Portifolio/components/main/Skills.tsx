@@ -34,7 +34,7 @@ const Skills = () => {
           Frontend
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8">
-          {[...new Set(Frontend_skill.map((image) => image.Image))].map((img, index) => {
+          {Array.from(new Set(Frontend_skill.map((image) => image.Image))).map((img, index) => {
             const skill = Frontend_skill.find((s) => s.Image === img);
             return skill ? (
               <div
@@ -72,7 +72,7 @@ const Skills = () => {
           Backend
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-          {[...new Set(Backend_skill.map((image) => image.Image))].map((img, index) => {
+          {Array.from(new Set(Backend_skill.map((image) => image.Image))).map((img, index) => {
             const skill = Backend_skill.find((s) => s.Image === img);
             return skill ? (
               <div
@@ -110,7 +110,7 @@ const Skills = () => {
           Full Stack
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
-          {[...new Set(Full_stack.map((image) => image.Image))].map((img, index) => {
+          {Array.from(new Set(Full_stack.map((image) => image.Image))).map((img, index) => {
             const skill = Full_stack.find((s) => s.Image === img);
             return skill ? (
               <div

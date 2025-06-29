@@ -4,39 +4,57 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { cardVariant } from "@/utils/motion";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 interface Props {
-  src: string; // Caminho do vídeo ou da imagem
+  src: string;
   title: string;
   description: string;
+  technologies?: string[];
+  githubUrl?: string;
+  liveUrl?: string;
+  category?: string;
+  index?: number;
 }
 
-const ProjectCard = ({ src, title, description }: Props) => {
-  // Verifica se o arquivo é um vídeo baseado na extensão
+const ProjectCard = ({ 
+  src, 
+  title, 
+  description, 
+  technologies = [], 
+  githubUrl, 
+  liveUrl, 
+  category = "Projeto",
+  index = 0 
+}: Props) => {
   const isVideo = src.endsWith(".mp4") || src.endsWith(".webm") || src.endsWith(".ogg");
 
   return (
     <motion.div
       variants={cardVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
       whileHover={{ 
         y: -10,
         transition: { duration: 0.3, ease: "easeOut" }
       }}
-      className="relative overflow-hidden rounded-2xl shadow-2xl border border-primary-500/30 bg-gradient-to-br from-surface/50 to-surface/20 backdrop-blur-sm group"
+      className="relative overflow-hidden rounded-2xl shadow-2xl border border-primary-500/30 bg-gradient-to-br from-surface/50 to-surface/20 backdrop-blur-sm group h-full flex flex-col"
     >
       {/* Image/Video Container */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden h-48">
         {isVideo ? (
           <video
             src={src}
-            className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             controls
             loop
             muted
             autoPlay 
           />
         ) : (
-          <div className="relative h-64 overflow-hidden">
+          <div className="relative h-full overflow-hidden">
             <Image
               src={src}
               alt={title}
@@ -47,29 +65,72 @@ const ProjectCard = ({ src, title, description }: Props) => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
         )}
+        
+        {/* Category Badge */}
+        <div className="absolute top-4 left-4">
+          <span className="px-3 py-1 rounded-full bg-gradient-to-r from-primary-500 to-cyan-500 text-white text-xs font-bold shadow-lg">
+            {category}
+          </span>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {githubUrl && (
+            <motion.a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-primary-500 transition-colors duration-300"
+              title="Ver no GitHub"
+            >
+              <FaGithub className="w-4 h-4" />
+            </motion.a>
+          )}
+          {liveUrl && (
+            <motion.a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="p-2 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-cyan-500 transition-colors duration-300"
+              title="Ver projeto ao vivo"
+            >
+              <FaExternalLinkAlt className="w-4 h-4" />
+            </motion.a>
+          )}
+        </div>
       </div>
 
       {/* Content */}
-      <div className="relative p-6">
-        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-cyan-400 transition-all duration-300">
+      <div className="relative p-6 flex-1 flex flex-col">
+        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-cyan-400 transition-all duration-300">
           {title}
         </h3>
-        <p className="text-gray-300 leading-relaxed text-base">
+        <p className="text-gray-300 leading-relaxed text-sm flex-1 mb-4">
           {description}
         </p>
         
-        {/* Tech Stack Badge */}
-        <div className="mt-4 flex flex-wrap gap-2">
-          <span className="px-3 py-1 rounded-full bg-primary-500/20 text-primary-300 text-sm font-medium border border-primary-500/30">
-            React
-          </span>
-          <span className="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-sm font-medium border border-cyan-500/30">
-            Node.js
-          </span>
-          <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-sm font-medium border border-blue-500/30">
-            TypeScript
-          </span>
-        </div>
+        {/* Tech Stack */}
+        {technologies.length > 0 && (
+          <div className="mt-auto">
+            <h4 className="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">
+              Tecnologias utilizadas
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {technologies.map((tech) => (
+                <span 
+                  key={tech}
+                  className="px-2 py-1 rounded-md bg-primary-500/20 text-primary-300 text-xs font-medium border border-primary-500/30"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Glow Effect */}

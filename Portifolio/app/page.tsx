@@ -2,6 +2,7 @@ import Encryption from "@/components/main/Encryption";
 import Hero from "@/components/main/Hero";
 import Projects from "@/components/main/Projects";
 import Skills from "@/components/main/Skills";
+import Certificates from "@/components/main/Certificates";
 import ContactForm from "@/components/sub/ContactForm";
 
 export default function Home() {
@@ -27,7 +28,18 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Encryption Section - Terceira seção */}
+      {/* Certificates Section - Terceira seção */}
+      <section 
+        id="certificates" 
+        className="relative min-h-screen flex items-center justify-center py-20 bg-gradient-to-b from-background via-surface/30 to-background"
+        aria-label="Certificações técnicas"
+      >
+        <div className="container mx-auto px-4">
+          <Certificates />
+        </div>
+      </section>
+      
+      {/* Encryption Section - Quarta seção */}
       <section 
         id="performance" 
         className="relative min-h-screen flex items-center justify-center py-20 bg-gradient-to-b from-background via-surface/30 to-background"
@@ -38,7 +50,7 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Projects Section - Quarta seção */}
+      {/* Projects Section - Quinta seção */}
       <section 
         id="projects" 
         className="relative min-h-screen flex items-center justify-center py-20 bg-gradient-to-b from-background via-background/50 to-surface/20"
@@ -49,7 +61,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section - Quinta seção */}
+      {/* Contact Section - Sexta seção */}
       <section 
         id="contact" 
         className="relative min-h-screen flex flex-col items-center justify-center py-20 bg-gradient-to-b from-surface/20 via-surface/40 to-background"

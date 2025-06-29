@@ -46,8 +46,8 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { href: "#home", label: "Início" },
     { href: "#skills", label: "Skills" },
+    { href: "#certificates", label: "Certificações" },
     { href: "#projects", label: "Projetos" },
     { href: "#contact", label: "Contato" },
   ];

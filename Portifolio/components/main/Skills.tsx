@@ -26,82 +26,81 @@ const Skills = () => {
         <SkillText />
       </motion.div>
 
-      {/* Skills Grid - Main Skills */}
-      <motion.div 
-        variants={cardVariant}
-        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 w-full max-w-6xl"
-      >
-        {Skill_data.map((image, index) => (
-          <SkillDataProvider
-            key={index}
-            src={image.Image}
-            width={image.width}
-            height={image.height}
-            index={index}
-          />
-        ))}
-      </motion.div>
-
       {/* Frontend Skills */}
       <motion.div 
         variants={cardVariant}
-        className="w-full max-w-6xl"
+        className="w-full max-w-6xl mb-12"
       >
-        <h3 className="text-2xl font-bold text-center mb-6 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+        <h3 className="text-3xl font-extrabold text-center mb-8 bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent drop-shadow-lg tracking-wide uppercase">
           Frontend
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
-          {Frontend_skill.map((image, index) => (
-            <SkillDataProvider
-              key={index}
-              src={image.Image}
-              width={image.width}
-              height={image.height}
-              index={index}
-            />
-          ))}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8">
+          {[...new Set(Frontend_skill.map((image) => image.Image))].map((img, index) => {
+            const skill = Frontend_skill.find((s) => s.Image === img);
+            return skill ? (
+              <div key={index} className="flex flex-col items-center justify-center p-4 rounded-2xl bg-gradient-to-br from-surface/30 to-surface/10 backdrop-blur-sm border border-primary-500/20 hover:border-primary-500/40 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                <SkillDataProvider
+                  src={skill.Image}
+                  width={skill.width}
+                  height={skill.height}
+                  index={index}
+                />
+                <span className="mt-3 text-sm text-gray-200 font-semibold text-center tracking-wide">{skill.skill_name}</span>
+              </div>
+            ) : null;
+          })}
         </div>
       </motion.div>
 
       {/* Backend Skills */}
       <motion.div 
         variants={cardVariant}
-        className="w-full max-w-6xl"
+        className="w-full max-w-6xl mb-12"
       >
-        <h3 className="text-2xl font-bold text-center mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+        <h3 className="text-3xl font-extrabold text-center mb-8 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg tracking-wide uppercase">
           Backend
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {Backend_skill.map((image, index) => (
-            <SkillDataProvider
-              key={index}
-              src={image.Image}
-              width={image.width}
-              height={image.height}
-              index={index}
-            />
-          ))}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          {[...new Set(Backend_skill.map((image) => image.Image))].map((img, index) => {
+            const skill = Backend_skill.find((s) => s.Image === img);
+            return skill ? (
+              <div key={index} className="flex flex-col items-center justify-center p-4 rounded-2xl bg-gradient-to-br from-surface/30 to-surface/10 backdrop-blur-sm border border-primary-500/20 hover:border-primary-500/40 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                <SkillDataProvider
+                  src={skill.Image}
+                  width={skill.width}
+                  height={skill.height}
+                  index={index}
+                />
+                <span className="mt-3 text-sm text-gray-200 font-semibold text-center tracking-wide">{skill.skill_name}</span>
+              </div>
+            ) : null;
+          })}
         </div>
       </motion.div>
 
       {/* Full Stack Skills */}
       <motion.div 
         variants={cardVariant}
-        className="w-full max-w-6xl"
+        className="w-full max-w-6xl mb-12"
       >
-        <h3 className="text-2xl font-bold text-center mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+        <h3 className="text-3xl font-extrabold text-center mb-8 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg tracking-wide uppercase">
           Full Stack
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {Full_stack.map((image, index) => (
-            <SkillDataProvider
-              key={index}
-              src={image.Image}
-              width={image.width}
-              height={image.height}
-              index={index}
-            />
-          ))}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
+          {[...new Set(Full_stack.map((image) => image.Image))].map((img, index) => {
+            const skill = Full_stack.find((s) => s.Image === img);
+            return skill ? (
+              <div key={index} className="flex flex-col items-center justify-center p-4 rounded-2xl bg-gradient-to-br from-surface/30 to-surface/10 backdrop-blur-sm border border-primary-500/20 hover:border-primary-500/40 transition-all duration-300 shadow-lg hover:shadow-2xl">
+                <SkillDataProvider
+                  src={skill.Image}
+                  width={skill.width}
+                  height={skill.height}
+                  index={index}
+                />
+                <span className="mt-3 text-sm text-gray-200 font-semibold text-center tracking-wide">{skill.skill_name}</span>
+              </div>
+            ) : null;
+          })}
         </div>
       </motion.div>
 

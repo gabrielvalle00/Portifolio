@@ -30,7 +30,7 @@ const Projects = () => {
         variants={fadeIn(0.5)}
         className="flex flex-wrap justify-center gap-4 mb-12"
       >
-        {["Todos", "Full Stack", "Frontend", "Backend", "Mobile", "Desktop"].map((category) => (
+        {["Todos", "Full Stack", "Frontend", "Backend", "Web App", "Desktop"].map((category) => (
           <motion.button
             key={category}
             whileHover={{ scale: 1.05 }}
@@ -58,6 +58,7 @@ const Projects = () => {
             liveUrl={project.liveUrl}
             category={project.category}
             index={index}
+            videoUrl={project.videoUrl}
           />
         ))}
       </motion.div>

@@ -15,6 +15,7 @@ interface Props {
   liveUrl?: string;
   category?: string;
   index?: number;
+  videoUrl?: string;
 }
 
 const ProjectCard = ({ 
@@ -25,9 +26,10 @@ const ProjectCard = ({
   githubUrl, 
   liveUrl, 
   category = "Projeto",
-  index = 0 
+  index = 0,
+  videoUrl
 }: Props) => {
-  const isVideo = src.endsWith(".mp4") || src.endsWith(".webm") || src.endsWith(".ogg");
+  const isVideo = (videoUrl && (videoUrl.endsWith(".mp4") || videoUrl.endsWith(".webm") || videoUrl.endsWith(".ogg")));
 
   return (
     <motion.div
@@ -46,12 +48,18 @@ const ProjectCard = ({
       <div className="relative overflow-hidden h-48">
         {isVideo ? (
           <video
-            src={src}
+            src={videoUrl}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            controls
             loop
             muted
-            autoPlay 
+            autoPlay
+            playsInline
+            onError={(e) => {
+              const parent = e.target.parentNode;
+              if (parent) {
+                parent.innerHTML = `<img src='${src}' alt='${title}' style='width:100%;height:100%;object-fit:cover;border-radius:inherit;' />`;
+              }
+            }}
           />
         ) : (
           <div className="relative h-full overflow-hidden">

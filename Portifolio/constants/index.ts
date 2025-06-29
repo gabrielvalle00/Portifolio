@@ -216,56 +216,57 @@ export const Full_stack = [
 
 export const Projects_data = [
   {
-    title: "Patinhas Do Bem",
-    description: "Plataforma completa para adoção e doação de animais, desenvolvida com React, Node.js e MySQL. Sistema de cadastro de pets, busca por localização, chat entre usuários e dashboard administrativo. Projeto full-stack com foco em UX/UI responsivo e acessibilidade.",
+    title: "Patinhas do Bem (Web & Mobile)",
+    description: "Plataforma web e mobile desenvolvida como TCC no SENAI, voltada para facilitar a adoção e doação de animais. Permite cadastro, busca, chat, integração com MySQL, Firebase, JWT, React Native, Android Studio e muito mais. Projeto completo, elogiado por professores e com impacto social real.",
     image: "/project2.png",
-    technologies: ["React", "Node.js", "MySQL", "Express", "Tailwind CSS"],
-    githubUrl: "https://github.com/gabrielvalle00/patinhas-do-bem",
-    liveUrl: null,
+    technologies: ["React", "React Native", "Node.js", "MySQL", "Firebase", "JWT", "Android Studio", "JavaScript"],
+    githubUrl: "https://github.com/gabrielvalle00/PatinhasDoBem",
+    liveUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7273539766908829696/",
+    videoUrl: "/TCC-Video ‐ Feito com o Clipchamp.mp4",
     category: "Full Stack"
   },
   {
-    title: "Mundo Literário",
-    description: "E-commerce completo para livraria virtual desenvolvido em Node.js com Express, Handlebars e MySQL. Sistema de carrinho de compras, gestão de produtos, autenticação de usuários e painel administrativo. Integração com APIs de pagamento e sistema de avaliações.",
-    image: "/NextWebsite.png",
-    technologies: ["Node.js", "Express", "Handlebars", "MySQL", "JavaScript"],
-    githubUrl: "https://github.com/gabrielvalle00/mundo-literario",
+    title: "APP-Fimel-SQLite",
+    description: "Aplicativo para gerenciamento de filmes utilizando SQLite como banco de dados local. Permite cadastro, listagem e busca de filmes, com interface simples e intuitiva. Ideal para estudos de persistência local em apps.",
+    image: "/mysql.png",
+    technologies: ["JavaScript", "SQLite", "React Native"],
+    githubUrl: "https://github.com/gabrielvalle00/APP-Fimel-SQLite",
     liveUrl: null,
-    category: "Backend"
+    category: "Mobile"
   },
   {
     title: "Portfolio Profissional",
     description: "Portfolio moderno desenvolvido com Next.js 13, TypeScript e Framer Motion. Design responsivo com animações suaves, tema escuro, componentes reutilizáveis e otimização de performance. Integração com APIs do GitHub e sistema de contato.",
-    image: "/portfolio-preview.png",
+    image: "/Portfolio.png",
     technologies: ["Next.js 13", "TypeScript", "Framer Motion", "Tailwind CSS", "Three.js"],
     githubUrl: "https://github.com/gabrielvalle00/Portifolio",
     liveUrl: "https://gabriel-valle.vercel.app",
     category: "Frontend"
   },
   {
-    title: "Sistema de Gestão",
-    description: "Sistema completo de gestão empresarial desenvolvido em Java com Spring Boot. Módulos de controle de estoque, vendas, clientes e relatórios. Interface desktop com JavaFX e banco de dados PostgreSQL. Sistema de backup automático e relatórios em PDF.",
-    image: "/sistema-gestao.png",
-    technologies: ["Java", "Spring Boot", "JavaFX", "PostgreSQL", "Jasper Reports"],
-    githubUrl: "https://github.com/gabrielvalle00/sistema-gestao",
-    liveUrl: null,
-    category: "Desktop"
-  },
-  {
-    title: "App Mobile - React Native",
-    description: "Aplicativo mobile para controle de tarefas e produtividade. Desenvolvido com React Native, integração com APIs REST, notificações push, sincronização offline e armazenamento local. Interface intuitiva com gestos e animações nativas.",
-    image: "/mobile-app.png",
-    technologies: ["React Native", "Expo", "AsyncStorage", "Push Notifications", "Redux"],
-    githubUrl: "https://github.com/gabrielvalle00/task-manager-app",
-    liveUrl: null,
+    title: "App Mobile CRUD MySQL",
+    description: "Aplicativo mobile desenvolvido como atividade acadêmica, com 4 telas para exibição, registro e pesquisa de itens armazenados em um banco MySQL. O app permite cadastro, listagem e busca de dados, com interface intuitiva e integração real com banco de dados remoto. Projeto elogiado pelo professor e finalizado com sucesso em sala de aula.",
+    image: "/androidStudio.png",
+    technologies: ["React Native", "Node.js", "MySQL", "Express"],
+    githubUrl: null,
+    liveUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7176006312609124352/",
     category: "Mobile"
   },
   {
-    title: "API REST - Microserviços",
-    description: "Arquitetura de microserviços desenvolvida com Node.js, Express e MongoDB. Sistema de autenticação JWT, rate limiting, documentação com Swagger, testes automatizados e deploy com Docker. Integração com serviços de email e pagamento.",
-    image: "/api-rest.png",
-    technologies: ["Node.js", "Express", "MongoDB", "JWT", "Docker", "Swagger"],
-    githubUrl: "https://github.com/gabrielvalle00/api-microservices",
+    title: "Mundo Literário",
+    description: "E-commerce completo para livraria virtual desenvolvido em Node.js com Express, Handlebars e MySQL. Sistema de carrinho de compras, gestão de produtos, autenticação de usuários e painel administrativo. Integração com APIs de pagamento e sistema de avaliações.",
+    image: "/mundo-literario-preview.png.png",
+    technologies: ["Node.js", "Express", "Handlebars", "MySQL", "JavaScript"],
+    githubUrl: "https://github.com/gabrielvalle00/MundoLiterario",
+    liveUrl: null,
+    category: "Web App"
+  },
+  {
+    title: "API de Consulta",
+    description: "API REST desenvolvida em Node.js para consulta de dados. Sistema de autenticação, endpoints organizados e documentação clara. Integração com banco de dados e validação de dados.",
+    image: "/node-js.png",
+    technologies: ["Node.js", "Express", "JavaScript", "API REST", "JSON"],
+    githubUrl: "https://github.com/gabrielvalle00/Cria-o-de-API-consulta",
     liveUrl: null,
     category: "Backend"
   }

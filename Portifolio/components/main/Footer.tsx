@@ -123,7 +123,7 @@ const Footer = () => {
             </motion.div>
           ))}
         </div>
-
+     
         {/* Copyright */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -134,6 +134,8 @@ const Footer = () => {
         >
           &copy; {new Date().getFullYear()} Gabriel Valle. Todos os direitos reservados.
         </motion.div>
+
+
       </div>
     </motion.footer>
   );

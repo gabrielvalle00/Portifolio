@@ -72,25 +72,20 @@ export default function StatusProjeto() {
   useEffect(() => {
     async function fetchGitHubData() {
       try {
-        const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&type=owner`);
-        const repos = await res.json();
-        setRepoCount(Array.isArray(repos) ? repos.length : null);
-        if (Array.isArray(repos) && repos.length > 0) {
-          const years = repos
-            .map((repo) => new Date(repo.created_at).getFullYear())
-            .filter((y) => !isNaN(y));
-          if (years.length > 0) {
-            const first = Math.min(...years);
-            setYearsCount(currentYear - first + 1);
-          }
-        }
+        // Busca da API interna do Next.js
+        const res = await fetch('/api/github-stats');
+        const data = await res.json();
+        setRepoCount(data.publicRepos ?? null);
+        setYearsCount(data.years ?? null);
+        setToolsCount(data.languagesCount ?? getUniqueSkills().length);
       } catch (e) {
         setRepoCount(null);
         setYearsCount(null);
+        setToolsCount(getUniqueSkills().length);
       }
     }
     fetchGitHubData();
-  }, [currentYear]);
+  }, []);
 
   const cards = [
     {

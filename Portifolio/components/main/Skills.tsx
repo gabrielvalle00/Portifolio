@@ -38,14 +38,26 @@ const Skills = () => {
           {[...new Set(Frontend_skill.map((image) => image.Image))].map((img, index) => {
             const skill = Frontend_skill.find((s) => s.Image === img);
             return skill ? (
-              <div key={index} className="flex flex-col items-center justify-center p-4 rounded-2xl bg-gradient-to-br from-surface/30 to-surface/10 backdrop-blur-sm border border-primary-500/20 hover:border-primary-500/40 transition-all duration-300 shadow-lg hover:shadow-2xl">
-                <SkillDataProvider
-                  src={skill.Image}
-                  width={skill.width}
-                  height={skill.height}
-                  index={index}
-                />
-                <span className="mt-3 text-sm text-gray-200 font-semibold text-center tracking-wide">{skill.skill_name}</span>
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center p-4 rounded-2xl bg-gradient-to-br from-surface/30 to-surface/10 backdrop-blur-sm border border-primary-500/20 hover:border-cyan-400 transition-all duration-300 shadow-lg hover:shadow-2xl group relative"
+                title={skill.skill_name}
+              >
+                <motion.div whileHover={{ scale: 1.15, rotate: 8 }} transition={{ type: 'spring', stiffness: 300 }}>
+                  <SkillDataProvider
+                    src={skill.Image}
+                    width={skill.width}
+                    height={skill.height}
+                    index={index}
+                  />
+                </motion.div>
+                <span className="mt-3 text-sm text-gray-200 font-semibold text-center tracking-wide">
+                  {skill.skill_name}
+                </span>
+                {/* Tooltip customizado */}
+                <span className="absolute bottom-14 left-1/2 -translate-x-1/2 px-3 py-1 rounded bg-black/80 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
+                  {skill.skill_name}
+                </span>
               </div>
             ) : null;
           })}
@@ -64,14 +76,26 @@ const Skills = () => {
           {[...new Set(Backend_skill.map((image) => image.Image))].map((img, index) => {
             const skill = Backend_skill.find((s) => s.Image === img);
             return skill ? (
-              <div key={index} className="flex flex-col items-center justify-center p-4 rounded-2xl bg-gradient-to-br from-surface/30 to-surface/10 backdrop-blur-sm border border-primary-500/20 hover:border-primary-500/40 transition-all duration-300 shadow-lg hover:shadow-2xl">
-                <SkillDataProvider
-                  src={skill.Image}
-                  width={skill.width}
-                  height={skill.height}
-                  index={index}
-                />
-                <span className="mt-3 text-sm text-gray-200 font-semibold text-center tracking-wide">{skill.skill_name}</span>
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center p-4 rounded-2xl bg-gradient-to-br from-surface/30 to-surface/10 backdrop-blur-sm border border-primary-500/20 hover:border-cyan-400 transition-all duration-300 shadow-lg hover:shadow-2xl group relative"
+                title={skill.skill_name}
+              >
+                <motion.div whileHover={{ scale: 1.15, rotate: 8 }} transition={{ type: 'spring', stiffness: 300 }}>
+                  <SkillDataProvider
+                    src={skill.Image}
+                    width={skill.width}
+                    height={skill.height}
+                    index={index}
+                  />
+                </motion.div>
+                <span className="mt-3 text-sm text-gray-200 font-semibold text-center tracking-wide">
+                  {skill.skill_name}
+                </span>
+                {/* Tooltip customizado */}
+                <span className="absolute bottom-14 left-1/2 -translate-x-1/2 px-3 py-1 rounded bg-black/80 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
+                  {skill.skill_name}
+                </span>
               </div>
             ) : null;
           })}
@@ -90,14 +114,26 @@ const Skills = () => {
           {[...new Set(Full_stack.map((image) => image.Image))].map((img, index) => {
             const skill = Full_stack.find((s) => s.Image === img);
             return skill ? (
-              <div key={index} className="flex flex-col items-center justify-center p-4 rounded-2xl bg-gradient-to-br from-surface/30 to-surface/10 backdrop-blur-sm border border-primary-500/20 hover:border-primary-500/40 transition-all duration-300 shadow-lg hover:shadow-2xl">
-                <SkillDataProvider
-                  src={skill.Image}
-                  width={skill.width}
-                  height={skill.height}
-                  index={index}
-                />
-                <span className="mt-3 text-sm text-gray-200 font-semibold text-center tracking-wide">{skill.skill_name}</span>
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center p-4 rounded-2xl bg-gradient-to-br from-surface/30 to-surface/10 backdrop-blur-sm border border-primary-500/20 hover:border-cyan-400 transition-all duration-300 shadow-lg hover:shadow-2xl group relative"
+                title={skill.skill_name}
+              >
+                <motion.div whileHover={{ scale: 1.15, rotate: 8 }} transition={{ type: 'spring', stiffness: 300 }}>
+                  <SkillDataProvider
+                    src={skill.Image}
+                    width={skill.width}
+                    height={skill.height}
+                    index={index}
+                  />
+                </motion.div>
+                <span className="mt-3 text-sm text-gray-200 font-semibold text-center tracking-wide">
+                  {skill.skill_name}
+                </span>
+                {/* Tooltip customizado */}
+                <span className="absolute bottom-14 left-1/2 -translate-x-1/2 px-3 py-1 rounded bg-black/80 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
+                  {skill.skill_name}
+                </span>
               </div>
             ) : null;
           })}

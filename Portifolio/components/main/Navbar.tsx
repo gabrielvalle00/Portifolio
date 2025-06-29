@@ -18,6 +18,7 @@ const Navbar = () => {
   const [showAbout, setShowAbout] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [active, setActive] = useState<string>("#skills");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +27,32 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Scrollspy: atualiza o item ativo conforme a seção visível
+  useEffect(() => {
+    const sectionIds = navItems.map(item => item.href.replace('#', ''));
+    const sections = sectionIds.map(id => document.getElementById(id));
+    const handleIntersect = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActive(`#${entry.target.id}`);
+        }
+      });
+    };
+    const observer = new window.IntersectionObserver(handleIntersect, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3,
+    });
+    sections.forEach(section => {
+      if (section) observer.observe(section);
+    });
+    return () => {
+      sections.forEach(section => {
+        if (section) observer.unobserve(section);
+      });
+    };
   }, []);
 
   const getIcon = (iconName: string) => {
@@ -80,20 +107,34 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               type="button"
               onClick={() => setShowAbout(true)}
-              className="flex items-center gap-2 bg-transparent border-none outline-none cursor-pointer group px-2"
+              className="flex items-center gap-3 bg-transparent border-none outline-none cursor-pointer group px-2"
               aria-label="Abrir informações sobre Gabriel Valle"
             >
-              <div className="relative">
-                <Image
-                  src="/ValleDevLogo.svg"
-                  alt="ValleDev Logo"
-                  width={40}
-                  height={40}
-                  className="cursor-pointer transition-transform duration-300 group-hover:scale-110 group-hover:animate-slowspin"
-                />
+              <div className="relative flex items-center justify-center">
+                {/* SVG moderno inspirado em laboratório/tecnologia para Gv Lab */}
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#fff" stopOpacity="0.7" />
+                      <stop offset="100%" stopColor="#a78bfa" stopOpacity="0.2" />
+                    </radialGradient>
+                    <linearGradient id="main-gradient" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                      <stop stopColor="#a78bfa" />
+                      <stop offset="1" stopColor="#06b6d4" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="20" cy="20" r="18" fill="url(#main-gradient)" />
+                  <ellipse cx="20" cy="20" rx="14" ry="14" fill="url(#glow)" />
+                  {/* Frasco estilizado */}
+                  <rect x="16" y="10" width="8" height="14" rx="4" fill="#fff" fillOpacity="0.15" />
+                  <rect x="18" y="8" width="4" height="6" rx="2" fill="#fff" fillOpacity="0.25" />
+                  <path d="M18 24 Q20 28 22 24" stroke="#fff" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                  {/* Letras Gv */}
+                  <text x="50%" y="70%" textAnchor="middle" fontSize="11" fontFamily="Poppins,Arial,sans-serif" fill="#fff" fontWeight="bold" dy=".1em">Gv</text>
+                </svg>
               </div>
-              <span className="font-poppins font-bold text-lg text-white tracking-wide hidden md:block group-hover:text-primary-300 transition-colors duration-300 ml-1">
-                ValleDev
+              <span className="font-poppins font-bold text-lg text-white tracking-wide md:block group-hover:text-primary-300 transition-colors duration-300 ml-1">
+                Gv Lab
               </span>
             </motion.button>
 
@@ -112,15 +153,22 @@ const Navbar = () => {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + index * 0.1, duration: 0.6 }}
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.08, boxShadow: '0 2px 16px 0 #a78bfa55' }}
                     whileTap={{ scale: 0.95 }}
-                    className="text-white font-medium px-3 py-2 rounded-full hover:bg-gradient-primary hover:text-white transition-all duration-300 focus-ring"
-                    onClick={(e) => {
+                    className={`text-white font-medium px-3 py-2 transition-all duration-300 relative ${active === item.href ? 'font-bold' : 'hover:text-cyan-300'}`}
+                    onClick={e => {
                       e.preventDefault();
+                      setActive(item.href);
                       handleNavClick(item.href);
                     }}
                   >
                     {item.label}
+                    {active === item.href && !isScrolled && (
+                      <></>
+                    )}
+                    {active === item.href && isScrolled && (
+                      <motion.span layoutId="nav-underline" className="absolute left-2 right-2 -bottom-1 h-1 rounded-full bg-gradient-to-r from-purple-400 to-cyan-400" />
+                    )}
                   </motion.a>
                 ))}
               </motion.div>

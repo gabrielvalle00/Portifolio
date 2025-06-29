@@ -102,10 +102,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        {/* Favicon SVG moderno Gv Lab */}
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3CradialGradient id='glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23fff' stop-opacity='0.7'/%3E%3Cstop offset='100%25' stop-color='%23a78bfa' stop-opacity='0.2'/%3E%3C/radialGradient%3E%3ClinearGradient id='main-gradient' x1='0' y1='0' x2='40' y2='40' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23a78bfa'/%3E%3Cstop offset='1' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='20' cy='20' r='18' fill='url(%23main-gradient)'/%3E%3Cellipse cx='20' cy='20' rx='14' ry='14' fill='url(%23glow)'/%3E%3Crect x='16' y='10' width='8' height='14' rx='4' fill='%23fff' fill-opacity='0.15'/%3E%3Crect x='18' y='8' width='4' height='6' rx='2' fill='%23fff' fill-opacity='0.25'/%3E%3Cpath d='M18 24 Q20 28 22 24' stroke='%23fff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Ctext x='50%25' y='70%25' text-anchor='middle' font-size='11' font-family='Poppins,Arial,sans-serif' fill='%23fff' font-weight='bold' dy='.1em'%3EGv%3C/text%3E%3C/svg%3E" />
         
         {/* Manifest */}
         <link rel="manifest" href="/manifest.json" />

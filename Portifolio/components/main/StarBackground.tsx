@@ -13,7 +13,7 @@ interface StarBackgroundProps {
 const StarBackground = (props: StarBackgroundProps) => {
   const ref = useRef<any>();
   const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(5000), { radius: 1.2 })
+    random.inSphere(new Float32Array(15000), { radius: 1.2 })
   );
 
   useFrame((state, delta) => {
@@ -36,7 +36,7 @@ const StarBackground = (props: StarBackgroundProps) => {
                 color="#fff"
                 size={0.002}
                 sizeAttenuation={true}
-                dethWrite={false}
+                depthWrite={false}
             />
         </Points>
     </group>

@@ -315,16 +315,23 @@ const Certificates = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="group relative"
+              whileHover={{ y: -12, scale: 1.04, boxShadow: '0 8px 32px 0 #a78bfa33' }}
+              className="group relative hover:ring-2 hover:ring-cyan-400"
             >
-              <div className="bg-gray-800 rounded-2xl p-6 h-full border border-gray-700 hover:border-gray-600 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10">
+              <div className="bg-gray-800 rounded-2xl p-6 h-full border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10">
                 <div className="flex items-start justify-between mb-4">
-                  <CertificateIcon iconUrl={cert.iconUrl} category={cert.category} title={cert.title} />
-                  <FaCertificate className="text-2xl text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
+                  <motion.div whileHover={{ rotate: 8, scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}>
+                    <CertificateIcon iconUrl={cert.iconUrl} category={cert.category} title={cert.title} />
+                  </motion.div>
+                  <FaCertificate className="text-2xl text-gray-400 group-hover:text-cyan-400 transition-colors duration-300" />
                 </div>
                 
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
+                {/* Badge de destaque */}
+                {(cert.date.includes('2023') || cert.date.includes('2024')) && (
+                  <span className="absolute top-3 right-3 bg-gradient-to-r from-purple-500 to-cyan-500 text-white text-xs px-3 py-1 rounded-full shadow font-bold animate-pulse">Novo</span>
+                )}
+                
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
                   {cert.title}
                 </h3>
                 

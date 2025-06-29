@@ -54,8 +54,8 @@ const Projects = () => {
             title={project.title}
             description={project.description}
             technologies={project.technologies}
-            githubUrl={project.githubUrl}
-            liveUrl={project.liveUrl}
+            githubUrl={project.githubUrl ?? undefined}
+            liveUrl={project.liveUrl ?? undefined}
             category={project.category}
             index={index}
             videoUrl={project.videoUrl}

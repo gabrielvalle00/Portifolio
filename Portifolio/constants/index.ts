@@ -222,7 +222,7 @@ export const Projects_data = [
     technologies: ["React", "React Native", "Node.js", "MySQL", "Firebase", "JWT", "Android Studio", "JavaScript"],
     githubUrl: "https://github.com/gabrielvalle00/PatinhasDoBem",
     liveUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7273539766908829696/",
-    videoUrl: "/TCC.mp4",
+    videoUrl: "/tcc.mp4",
     category: "Full Stack"
   },
   {
@@ -237,7 +237,7 @@ export const Projects_data = [
   {
     title: "Portfolio Profissional",
     description: "Portfolio moderno desenvolvido com Next.js 13, TypeScript e Framer Motion. Design responsivo com animações suaves, tema escuro, componentes reutilizáveis e otimização de performance. Integração com APIs do GitHub e sistema de contato.",
-    image: "/Portfolio.png",
+    image: "/portfolio.png",
     technologies: ["Next.js 13", "TypeScript", "Framer Motion", "Tailwind CSS", "Three.js"],
     githubUrl: "https://github.com/gabrielvalle00/Portifolio",
     liveUrl: "https://gabriel-valle.vercel.app",

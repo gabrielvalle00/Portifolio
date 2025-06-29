@@ -1,9 +1,9 @@
 import React from "react";
-import HeroContent from "../sub/HeroContent";
+import AboutMe from "../sub/AboutMe";
 
-const Hero = () => {
+const About = () => {
   return (
-    <div className="relative flex flex-col h-full w-full pt-[110px]" id="about-me">
+    <div className="relative flex flex-col h-full w-full" id="about">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -18,11 +18,10 @@ const Hero = () => {
       
       {/* Content Layer */}
       <div className="relative z-[2]">
-        <HeroContent />
-        
+        <AboutMe />
       </div>
     </div>
   );
 };
 
-export default Hero;
+export default About; 

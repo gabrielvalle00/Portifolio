@@ -19,7 +19,7 @@ export const Skill_data = [
     },
     {
       skill_name: "Java",
-      Image: "/java.png",
+    Image: "/Java.png",
       width: 65,
       height: 65,
     },
@@ -81,20 +81,21 @@ export const Skill_data = [
   
   export const Socials = [
     {
-      name: "Discord",
-      src: "/instagram.svg",
+    name: "Instagram",
+    icon: "instagram",
+    href: "https://instagram.com",
     },
-    // {
-    //   name: "Facebook",
-    //   src: "/facebook.svg",
-    // },
+  {
+    name: "LinkedIn",
+    icon: "linkedin",
+    href: "https://www.linkedin.com/in/gabriel-valle-159170242/",
+  },
     {
-      name: "Instagram",
-      src: "/discord.svg",
+    name: "GitHub",
+    icon: "github",
+    href: "https://github.com/gabrielvalle00",
     },
   ];
-  
-  
   
   export const Frontend_skill = [
     {
@@ -199,7 +200,6 @@ export const Skill_data = [
       width: 50,
       height: 50,
     },
-  
   ];
   
   

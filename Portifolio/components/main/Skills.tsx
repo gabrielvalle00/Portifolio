@@ -28,12 +28,12 @@ const Skills = () => {
       {/* Frontend Skills */}
       <motion.div 
         variants={cardVariant}
-        className="w-full max-w-6xl mb-12"
+        className="w-full max-w-6xl mb-8 sm:mb-12"
       >
-        <h3 className="text-3xl font-extrabold text-center mb-8 bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent drop-shadow-lg tracking-wide uppercase">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-center mb-2 sm:mb-4 md:mb-8 bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent drop-shadow-lg tracking-wide uppercase">
           Frontend
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-4 md:gap-8">
           {Array.from(new Set(Frontend_skill.map((image) => image.Image))).map((img, index) => {
             const skill = Frontend_skill.find((s) => s.Image === img);
             return skill ? (
@@ -68,10 +68,10 @@ const Skills = () => {
         variants={cardVariant}
         className="w-full max-w-6xl mb-12"
       >
-        <h3 className="text-3xl font-extrabold text-center mb-8 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg tracking-wide uppercase">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-center mb-2 sm:mb-4 md:mb-8 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg tracking-wide uppercase">
           Backend
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-4 md:gap-8">
           {Array.from(new Set(Backend_skill.map((image) => image.Image))).map((img, index) => {
             const skill = Backend_skill.find((s) => s.Image === img);
             return skill ? (
@@ -106,10 +106,10 @@ const Skills = () => {
         variants={cardVariant}
         className="w-full max-w-6xl mb-12"
       >
-        <h3 className="text-3xl font-extrabold text-center mb-8 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg tracking-wide uppercase">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-center mb-2 sm:mb-4 md:mb-8 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg tracking-wide uppercase">
           Full Stack
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-8">
           {Array.from(new Set(Full_stack.map((image) => image.Image))).map((img, index) => {
             const skill = Full_stack.find((s) => s.Image === img);
             return skill ? (

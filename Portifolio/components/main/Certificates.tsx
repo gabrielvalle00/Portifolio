@@ -263,33 +263,29 @@ const Certificates = () => {
     : certificates.filter(cert => cert.category === selectedCategory);
 
   return (
-    <section id="certificates" className="py-20 bg-gradient-to-b from-gray-900 to-black">
-      <div className="container mx-auto px-4">
+    <section id="certificates" className="py-10 sm:py-16 md:py-20 bg-gradient-to-b from-gray-900 to-black">
+      <div className="container mx-auto px-2 sm:px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-6 sm:mb-10 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-4">
             Certificações Técnicas
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto">
             Certificados que comprovam minha expertise em Cloud, Desenvolvimento e soluções modernas.
           </p>
         </motion.div>
-
-        {/* No JSX, logo acima dos filtros, exibir a descrição da categoria selecionada: */}
-        <p className="text-md text-blue-200 mb-8 min-h-[32px] transition-all duration-300 text-center">
+        <p className="text-md text-blue-200 mb-4 sm:mb-8 min-h-[32px] transition-all duration-300 text-center">
           {categoryDescriptions[selectedCategory] || ""}
         </p>
-
-        {/* Filtros por categoria */}
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-6 mb-8"
         >
           {categories.map((category) => (
             <button
@@ -305,9 +301,7 @@ const Certificates = () => {
             </button>
           ))}
         </motion.div>
-
-        {/* Grid de certificações */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {filteredCertificates.map((cert, index) => (
             <motion.div
               key={cert.id}
@@ -325,7 +319,6 @@ const Certificates = () => {
                   <FaCertificate className="text-2xl text-gray-400 group-hover:text-cyan-400 transition-colors duration-300" />
                 </div>
                 
-                {/* Badge de destaque */}
                 {(cert.date.includes('2023') || cert.date.includes('2024')) && (
                   <span className="absolute top-3 right-3 bg-gradient-to-r from-purple-500 to-cyan-500 text-white text-xs px-3 py-1 rounded-full shadow font-bold animate-pulse">Novo</span>
                 )}
@@ -356,14 +349,11 @@ const Certificates = () => {
                     Exibir credencial
                   </a>
                 )}
-                {/* Efeito de brilho no hover */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Estatísticas */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

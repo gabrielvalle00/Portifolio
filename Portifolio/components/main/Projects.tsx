@@ -11,7 +11,7 @@ const Projects = () => {
   const speed = 1.2; // pixels por frame
   const containerRef = useRef<HTMLDivElement>(null);
   const cardWidth = 420;
-  const gap = 32;
+  const gap = typeof window !== 'undefined' && window.innerWidth < 640 ? 12 : 32;
   const total = Projects_data.length;
   const [isHovered, setIsHovered] = useState(false);
 
@@ -63,11 +63,11 @@ const Projects = () => {
       className="flex flex-col items-center justify-center py-20 w-full"
       id="projects"
     >
-      <motion.div variants={textVariant} className="text-center mb-16">
-        <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-cyan-500 to-blue-500 mb-4">
+      <motion.div variants={textVariant} className="text-center mb-8 sm:mb-12 md:mb-16">
+        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-cyan-500 to-blue-500 mb-2 sm:mb-4 md:mb-8">
           Meus Projetos
         </h1>
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
           Confira alguns dos projetos que desenvolvi, demonstrando minhas habilidades em diferentes tecnologias e abordagens de desenvolvimento
         </p>
       </motion.div>
@@ -90,10 +90,10 @@ const Projects = () => {
       </motion.div>
 
       {/* Carrossel horizontal clássico */}
-      <div className="relative w-full max-w-7xl h-[420px] sm:h-[480px] md:h-[520px] lg:h-[540px] overflow-hidden select-none">
+      <div className="relative w-full max-w-7xl h-[320px] sm:h-[400px] md:h-[480px] lg:h-[540px] overflow-hidden select-none px-1 sm:px-4 mb-8">
         <div
           ref={containerRef}
-          className="flex items-center h-full gap-8"
+          className="flex items-center h-full gap-3 sm:gap-8"
           style={{
             transform: `translateX(-${offset}px)`,
             transition: 'none',

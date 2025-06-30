@@ -74,7 +74,7 @@ const Footer = () => {
     >
       <div className="w-full flex flex-col items-center justify-center m-auto">
         {/* Footer Content */}
-        <div className="w-full h-full flex flex-col md:flex-row items-center justify-around flex-wrap gap-8">
+        <div className="w-full h-full flex flex-col md:flex-row items-center justify-around flex-wrap gap-8 md:gap-16">
           {footerSections.map((section, sectionIndex) => (
             <motion.div
               key={section.title}
@@ -98,7 +98,7 @@ const Footer = () => {
                   viewport={{ once: true }}
                   transition={{ delay: (sectionIndex * 0.1) + (linkIndex * 0.05), duration: 0.6 }}
                   whileHover={{ x: 5, scale: 1.05 }}
-                  className="flex flex-row items-center my-[10px] cursor-pointer hover:text-purple-400 transition-all duration-300 group"
+                  className="flex flex-row items-center my-[10px] cursor-pointer hover:text-purple-400 transition-all duration-300 group px-2 py-2 rounded-lg min-w-[120px] justify-center"
                 >
                   <span className="group-hover:scale-110 transition-transform duration-300">
                     {link.icon}

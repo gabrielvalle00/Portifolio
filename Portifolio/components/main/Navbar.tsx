@@ -231,45 +231,32 @@ const Navbar = () => {
             {isMobileMenuOpen && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
+                animate={{ opacity: 1, height: '100vh' }}
                 exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="md:hidden overflow-hidden"
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="fixed inset-0 z-[9999] bg-black/90 flex flex-col items-center justify-center gap-8 p-8"
               >
-                <div className="py-4 space-y-2">
+                <div className="flex flex-col items-center gap-6 w-full">
                   {navItems.map((item) => (
                     <motion.a
                       key={item.href}
                       href={item.href}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      whileHover={{ x: 10 }}
-                      className="block px-4 py-2 text-white hover:bg-primary-500/20 rounded-lg transition-all duration-300"
-                      onClick={(e) => {
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="text-2xl font-bold text-white py-4 px-8 rounded-lg w-full text-center bg-gradient-to-r from-primary-500/20 to-cyan-500/20 border border-primary-500/30 mb-2"
+                      onClick={e => {
                         e.preventDefault();
+                        setActive(item.href);
                         handleNavClick(item.href);
+                        setIsMobileMenuOpen(false);
                       }}
                     >
                       {item.label}
                     </motion.a>
                   ))}
-                  <div className="flex justify-center gap-4 pt-4 border-t border-primary-500/30">
-                    {Socials.map((social) => (
-                      <motion.a
-                        key={social.name}
-                        href={social.href || "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="p-2 rounded-lg bg-primary-500/20"
-                        title={social.name}
-                      >
-                        {getIcon(social.icon)}
-                      </motion.a>
-                    ))}
-                  </div>
                 </div>
               </motion.div>
             )}

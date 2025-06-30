@@ -66,22 +66,22 @@ const About = () => {
       {/* Content Layer */}
       <div className="relative z-[2]">
         <AboutMe />
-        <section id="about" className="py-20 bg-gradient-to-b from-black via-gray-900 to-background">
-          <div className="container mx-auto px-4">
+        <section id="about" className="py-10 sm:py-16 md:py-20 bg-gradient-to-b from-black via-gray-900 to-background">
+          <div className="container mx-auto px-2 sm:px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-16"
+              className="text-center mb-8 sm:mb-12 md:mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-4">
                 O que um Técnico em ADS entrega
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
                 Veja as principais competências e entregas de um profissional de Análise e Desenvolvimento de Sistemas, incluindo Python e Inteligência Artificial.
               </p>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
               {entregas.map((item, idx) => (
                 <motion.div
                   key={item.title}

@@ -14,6 +14,8 @@ const Hero = () => {
         >
           <source src="/blackhole.webm" type="video/webm" />
         </video>
+        {/* Overlay escuro com blur leve para leitura em telas menores */}
+        <div className="block xl:hidden absolute inset-0 bg-black/30 backdrop-blur-sm z-10" />
       </div>
       
       {/* Content Layer */}

@@ -36,9 +36,9 @@ const HeroContent = () => {
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-6 mt-6"
+          className="flex flex-col gap-6 mt-6 relative"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight relative z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             <span>Fornecendo</span>
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-cyan-500 to-blue-500">
@@ -51,11 +51,11 @@ const HeroContent = () => {
 
         <motion.p
           variants={slideInFromLeft(0.8)}
-          className="text-lg md:text-xl lg:text-2xl text-gray-300 my-8 leading-relaxed"
+          className="text-lg md:text-xl lg:text-2xl text-gray-300 my-8 leading-relaxed relative z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
         >
           Sou Desenvolvedor Full Stack com experiência em desenvolvimento de sites, aplicativos móveis e soluções digitais inovadoras. Confira meus projetos e habilidades!
         </motion.p>
-
+          
         <motion.div variants={fadeIn(1.0)}>
           <StatusProjeto />
         </motion.div>
@@ -68,13 +68,13 @@ const HeroContent = () => {
       >
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-cyan-500/20 to-blue-500/20 rounded-full blur-3xl group-hover:blur-2xl transition-all duration-500 animate-pulse"></div>
-          <Image
-            src="/mainIconsdark.svg"
-            alt="work icons"
+        <Image
+          src="/mainIconsdark.svg"
+          alt="work icons"
             height={500}
             width={500}
             className="relative z-10 transition-transform duration-500 group-hover:scale-105"
-          />
+        />
         </div>
       </motion.div>
 

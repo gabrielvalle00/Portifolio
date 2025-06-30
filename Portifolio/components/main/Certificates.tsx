@@ -263,7 +263,7 @@ const Certificates = () => {
     : certificates.filter(cert => cert.category === selectedCategory);
 
   return (
-    <section id="certificates" className="py-10 sm:py-16 md:py-20 bg-gradient-to-b from-gray-900 to-black">
+    <section id="certificates" className="py-10 sm:py-16 md:py-20">
       <div className="container mx-auto px-2 sm:px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -271,11 +271,11 @@ const Certificates = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-6 sm:mb-10 md:mb-16"
         >
-          <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2 sm:mb-4">
             Certificações Técnicas
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto">
-            Certificados que comprovam minha expertise em Cloud, Desenvolvimento e soluções modernas.
+          <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-medium drop-shadow mb-2">
+            Cada certificado representa uma conquista e um novo nível de excelência em tecnologia.
           </p>
         </motion.div>
         <p className="text-md text-blue-200 mb-4 sm:mb-8 min-h-[32px] transition-all duration-300 text-center">
@@ -301,88 +301,91 @@ const Certificates = () => {
             </button>
           ))}
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-          {filteredCertificates.map((cert, index) => (
-            <motion.div
-              key={cert.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -12, scale: 1.04, boxShadow: '0 8px 32px 0 #a78bfa33' }}
-              className="group relative hover:ring-2 hover:ring-cyan-400"
-            >
-              <div className="bg-gray-800 rounded-2xl p-6 h-full border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10">
-                <div className="flex items-start justify-between mb-4">
-                  <motion.div whileHover={{ rotate: 8, scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}>
-                    <CertificateIcon iconUrl={cert.iconUrl} category={cert.category} title={cert.title} />
-                  </motion.div>
-                  <FaCertificate className="text-2xl text-gray-400 group-hover:text-cyan-400 transition-colors duration-300" />
+        {/* Carrossel de Certificados */}
+        <div className="relative">
+          <div className="flex overflow-x-auto overflow-y-hidden gap-8 sm:gap-10 md:gap-12 pb-6 px-4 sm:px-8 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-primary-500/40 scrollbar-track-transparent"
+            style={{ WebkitOverflowScrolling: 'touch', height: '370px', minHeight: '370px', maxHeight: '370px' }}>
+            {filteredCertificates.map((cert, index) => (
+              <motion.div
+                key={cert.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -12, scale: 1.04, boxShadow: '0 8px 32px 0 #a78bfa33' }}
+                className="group relative hover:ring-2 hover:ring-cyan-400 min-w-[320px] max-w-xs snap-center"
+                style={{ height: '340px', minHeight: '340px', maxHeight: '340px' }}
+              >
+                <div className="rounded-2xl p-6 h-full border border-primary-500/30 hover:border-cyan-400 transition-all duration-300 shadow-xl hover:shadow-2xl backdrop-blur-md bg-white/10 hover:bg-white/20 flex flex-col justify-between">
+                  <div className="flex items-start justify-between mb-4">
+                    <motion.div whileHover={{ rotate: 8, scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}>
+                      <CertificateIcon iconUrl={cert.iconUrl} category={cert.category} title={cert.title} />
+                    </motion.div>
+                    <FaCertificate className="text-2xl text-gray-400 group-hover:text-cyan-400 transition-colors duration-300" />
+                  </div>
+                  {(cert.date.includes('2023') || cert.date.includes('2024')) && (
+                    <span className="absolute top-3 right-3 bg-gradient-to-r from-purple-500 to-cyan-500 text-white text-xs px-3 py-1 rounded-full shadow font-bold animate-pulse">Novo</span>
+                  )}
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
+                    {cert.title}
+                  </h3>
+                  <p className="text-gray-300 mb-3">
+                    {cert.issuer}
+                  </p>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-gray-400">
+                      {cert.date}
+                    </span>
+                    <span className="px-3 py-1 bg-gray-700/70 text-gray-200 text-xs rounded-full">
+                      {cert.category}
+                    </span>
+                  </div>
+                  {cert.url && (
+                    <a
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block mt-2 px-4 py-2 bg-blue-600 text-white rounded-full text-xs font-semibold hover:bg-blue-700 transition-colors duration-300 shadow"
+                    >
+                      Exibir credencial
+                    </a>
+                  )}
                 </div>
-                
-                {(cert.date.includes('2023') || cert.date.includes('2024')) && (
-                  <span className="absolute top-3 right-3 bg-gradient-to-r from-purple-500 to-cyan-500 text-white text-xs px-3 py-1 rounded-full shadow font-bold animate-pulse">Novo</span>
-                )}
-                
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
-                  {cert.title}
-                </h3>
-                
-                <p className="text-gray-400 mb-3">
-                  {cert.issuer}
-                </p>
-                
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-gray-500">
-                    {cert.date}
-                  </span>
-                  <span className="px-3 py-1 bg-gray-700 text-gray-300 text-xs rounded-full">
-                    {cert.category}
-                  </span>
-                </div>
-                {cert.url && (
-                  <a
-                    href={cert.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-2 px-4 py-2 bg-blue-600 text-white rounded-full text-xs font-semibold hover:bg-blue-700 transition-colors duration-300 shadow"
-                  >
-                    Exibir credencial
-                  </a>
-                )}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
+        {/* Totais fixos embaixo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="sticky bottom-0 left-0 w-full pt-8 mt-8 z-20"
         >
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
-              {certificates.length}+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-extrabold text-blue-400 mb-1 drop-shadow-lg">
+                {certificates.length}+
+              </div>
+              <div className="text-base text-gray-300">Certificações</div>
             </div>
-            <div className="text-gray-400">Certificações</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-green-400 mb-2">
-              5
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-extrabold text-green-400 mb-1 drop-shadow-lg">
+                5
+              </div>
+              <div className="text-base text-gray-300">Google Cloud</div>
             </div>
-            <div className="text-gray-400">Google Cloud</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-purple-400 mb-2">
-              3+
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-extrabold text-purple-400 mb-1 drop-shadow-lg">
+                3+
+              </div>
+              <div className="text-base text-gray-300">Provedores Cloud</div>
             </div>
-            <div className="text-gray-400">Provedores Cloud</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-orange-400 mb-2">
-              100%
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-extrabold text-orange-400 mb-1 drop-shadow-lg">
+                100%
+              </div>
+              <div className="text-base text-gray-300">Atualizadas</div>
             </div>
-            <div className="text-gray-400">Atualizadas</div>
           </div>
         </motion.div>
       </div>

@@ -342,3 +342,19 @@ select {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Contorno preto para texto branco em mobile (legibilidade tipo legenda) */
+@media (max-width: 767px) {
+  .stroke-black-mobile {
+    -webkit-text-stroke: 1.2px #000;
+    text-stroke: 1.2px #000;
+    /* Não força color, deixa o gradiente aparecer */
+  }
+}
+
+@media (min-width: 768px) {
+  .stroke-black-mobile {
+    -webkit-text-stroke: 0;
+    text-stroke: 0;
+  }
+}

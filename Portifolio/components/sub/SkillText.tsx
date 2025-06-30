@@ -12,30 +12,30 @@ const SkillText = () => {
       viewport={{ once: true, amount: 0.25 }}
       className='w-full h-auto flex flex-col items-center justify-center text-center'
     >
-      <motion.div
-        variants={slideInFromTop}
+<motion.div
+          variants={slideInFromTop}
         className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9] mb-6"
-      >
-        <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
+        >
+          <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
         <h1 className="Welcome-text text-[13px] font-medium">            
           Pense melhor com Next.js 13
-        </h1>
-      </motion.div>
+          </h1>
+        </motion.div>
       
-      <motion.div
+        <motion.div
         variants={slideInFromLeft(0.5)}
-        className='text-3xl md:text-4xl lg:text-5xl text-white font-bold mb-4 leading-tight'
-      >
+        className='text-3xl md:text-4xl lg:text-5xl text-white font-bold mb-4 leading-tight stroke-black-mobile'
+        >
         Fazendo aplicativos com
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400">
           {" "}tecnologias modernas
         </span>
-      </motion.div>
+        </motion.div>
       
-      <motion.div
+        <motion.div
         variants={slideInFromRight(0.5)}
         className='text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed'
-      >
+        >
         Nunca perca uma tarefa, prazo ou ideia. Desenvolvimento eficiente e inovador.
       </motion.div>
 
@@ -61,7 +61,7 @@ const SkillText = () => {
           </motion.span>
         ))}
       </motion.div>
-    </motion.div>
+        </motion.div>
   )
 }
 

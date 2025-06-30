@@ -135,7 +135,7 @@ const Navbar = () => {
               </div>
               <span className="font-poppins font-bold text-lg text-white tracking-wide md:block group-hover:text-primary-300 transition-colors duration-300 ml-1">
                 Gv Lab
-              </span>
+          </span>
             </motion.button>
 
             {/* Menu centralizado - Desktop */}
@@ -224,7 +224,7 @@ const Navbar = () => {
                 </motion.a>
               ))}
             </motion.div>
-          </div>
+        </div>
 
           {/* Mobile Menu */}
           <AnimatePresence>
@@ -256,7 +256,7 @@ const Navbar = () => {
                     >
                       {item.label}
                     </motion.a>
-                  ))}
+          ))}
                 </div>
               </motion.div>
             )}

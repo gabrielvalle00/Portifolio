@@ -140,7 +140,7 @@ const Skills = () => {
       </motion.div>
 
       {/* Background Video */}
-      <div className="w-full h-full absolute inset-0 -z-10">
+      <div className="hidden md:block w-full h-full absolute inset-0 -z-10">
         <div className="w-full h-full z-0 opacity-20 absolute flex items-center justify-center bg-cover">
           <video
             className="w-full h-auto"

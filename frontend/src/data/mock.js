@@ -131,7 +131,7 @@ export const projects = [
     image: "/portifolio.png",
     tags: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
     github: "https://github.com/gabrielvalle00/Portifolio",
-    demo: "https://gevalle.vercel.app/",
+    demo: "https://gv-portifolio.vercel.app/",
     featured: true
   },
   {
